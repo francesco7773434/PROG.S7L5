@@ -10,8 +10,7 @@ window.addEventListener("DOMContentLoaded", () => {
     submitBtn.innerText = "Modifica prodotto";
     submitBtn.classList.add("btn-success");
     subtitle.innerText = "— Modifica prodotto";
-    delBtn.classList.remove("d-none");
-    delBtn.onclick = handleDelete;
+
     fetch(URL)
       .then((resp) => {
         if (resp.ok) {
@@ -61,32 +60,13 @@ form.onsubmit = function (event) {
         throw new Error("Errore nella creazione del prodotto");
       }
     })
-    .then((createdApp) => {
+    .then((createdProd) => {
       if (!productId) {
-        alert("prodotto con id " + createdApp._id + " creato correttamente!");
+        alert("prodotto con id " + createdProd._id + " creato correttamente!");
 
         form.reset();
       } else {
-        alert("prodotto con id " + createdApp._id + " modificato correttamente!");
+        alert("prodotto con id " + createdProd._id + " modificato correttamente!");
       }
     });
-};
-
-const handleDelete = () => {
-  const hasConfirmed = confirm("sei sicuro di voler eliminare l'appuntamento?");
-
-  if (hasConfirmed) {
-    fetch(URL, { method: "DELETE" })
-      .then((resp) => {
-        if (resp.ok) {
-          return resp.json();
-        }
-      })
-      .then((deletedApp) => {
-        alert("Abbiamo eliminato " + deletedApp.name + " con id " + deletedApp._id);
-
-        window.location.assign("./index.html");
-      })
-      .catch((err) => console.log(err));
-  }
 };
