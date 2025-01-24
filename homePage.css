@@ -1,0 +1,10 @@
+.borderNone {
+  border: none !important;
+}
+.img {
+  width: 60px;
+  margin-right: 4rem;
+}
+.trasparent {
+  background-color: rgba(250, 235, 215, 0);
+}
