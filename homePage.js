@@ -118,8 +118,8 @@ fetch("https://striveschool-api.herokuapp.com/api/product/", {
     }
   })
   .then((apiProducts) => {
-    const allProducts = apiProducts.concat(products); // Unisci i prodotti API con quelli predefiniti
-    row.innerHTML = ""; // Pulisci la riga prima di aggiungere nuovi prodotti
+    const allProducts = apiProducts.concat(products);
+    row.innerHTML = "";
 
     allProducts.forEach((obj) => {
       const col = document.createElement("div");
